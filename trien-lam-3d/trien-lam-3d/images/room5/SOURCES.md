@@ -7,3 +7,7 @@
 | `dep-tong.png` | Hình ảnh minh họa kiểu dép cao su | Không xác định | Asset supplied for the project; not identified as a historical artifact | Project asset |
 
 Ảnh phòng làm việc được ghi rõ là ảnh chụp không gian bảo tồn, không gán cho nó một sự kiện lịch sử hay hiện vật cụ thể. Không sử dụng ảnh AI.
+
+## Góc bàn làm việc giản dị
+
+`room5-work-desk` được dựng hoàn toàn bằng hình khối Three.js trong `script.js` (bàn gỗ, đèn bàn, chồng sách, sổ ghi chép). Đây là mô hình minh họa, không phải hiện vật gốc. Bộ mô hình `ha_noi_specialities.glb` cũ (ghế nhựa, cốc, con dao) đã được gỡ khỏi Phòng 05.
