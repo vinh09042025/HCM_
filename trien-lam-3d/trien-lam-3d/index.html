@@ -43,9 +43,17 @@
                 <span class="button-symbol" aria-hidden="true">▶</span>
                 <span>Bắt đầu</span>
             </button>
+            <button id="view-toggle-btn" class="action-btn view-toggle" type="button" aria-pressed="true" title="Góc nhìn thứ nhất / thứ ba · Phím V">
+                <span class="button-symbol" aria-hidden="true">◍</span>
+                <span>Góc nhìn 3</span>
+            </button>
             <button id="theme-toggle-btn" class="action-btn theme-toggle" type="button" aria-pressed="false" title="Chuyển Ngày/Đêm · Phím N">
                 <span class="button-symbol" aria-hidden="true">☀</span>
                 <span>Ngày</span>
+            </button>
+            <button id="voice-toggle-btn" class="action-btn voice-toggle is-on" type="button" aria-pressed="true" title="Bật/tắt thuyết minh · Phím M">
+                <span class="button-symbol" aria-hidden="true">🔊</span>
+                <span>Thuyết minh</span>
             </button>
             <div class="media-control">
                 <button id="media-toggle-btn" class="action-btn icon-btn" type="button" aria-expanded="false" aria-controls="media-popover" aria-label="Điều chỉnh âm thanh">
@@ -53,6 +61,10 @@
                 </button>
                 <div id="media-popover" class="media-popover" hidden>
                     <label for="bgm-slider"><span>Nhạc nền</span><input type="range" id="bgm-slider" min="0" max="1" step="0.05" value="0.2" /></label>
+                    <label for="voice-volume-slider"><span>Âm lượng lời</span><input type="range" id="voice-volume-slider" min="0" max="1" step="0.05" value="1" /></label>
+                    <label for="voice-rate-slider"><span>Tốc độ đọc</span><input type="range" id="voice-rate-slider" min="0.6" max="1.4" step="0.05" value="0.95" /></label>
+                    <label for="voice-select"><span>Giọng đọc</span><select id="voice-select"><option value="recorded">Giọng Hương · tiếng Việt thu sẵn</option></select></label>
+                    <p class="media-note" id="voice-status">Lời thuyết minh do giọng nữ tiếng Việt đọc sẵn.</p>
                 </div>
             </div>
             <button id="help-btn" class="action-btn icon-btn" type="button" aria-label="Xem hướng dẫn"><span aria-hidden="true">?</span></button>
@@ -81,10 +93,29 @@
                 <span><kbd>Click</kbd> Khám phá</span>
                 <span><kbd>ESC</kbd> Tạm dừng</span>
                 <span><kbd>N</kbd> Ngày / Đêm</span>
+                <span><kbd>V</kbd> Đổi góc nhìn</span>
+                <span><kbd>M</kbd> Bật / tắt lời thuyết minh</span>
+                <span><kbd>G</kbd> Gọi hướng dẫn viên</span>
             </div>
-            <p class="control-guide-note">Nhấn N để chuyển sang ban đêm và xem pháo hoa.</p>
+            <p class="control-guide-note">Mặc định là góc nhìn thứ ba: bạn sẽ thấy nhân vật của mình và hướng dẫn viên Hương đi cùng, thuyết minh từng phòng và từng hiện vật. Nhấn N để chuyển sang ban đêm và xem pháo hoa.</p>
         </div>
     </section>
+
+    <div id="guide-caption" class="guide-caption hidden" role="status" aria-live="polite">
+        <div class="guide-caption-avatar" aria-hidden="true">
+            <span class="guide-caption-pulse"></span>
+            <span class="guide-caption-initial">H</span>
+        </div>
+        <div class="guide-caption-body">
+            <p class="guide-caption-name" id="guide-caption-name">Hướng dẫn viên Hương</p>
+            <p class="guide-caption-text" id="guide-caption-text"></p>
+        </div>
+        <button id="guide-caption-stop" class="guide-caption-stop" type="button" aria-label="Dừng thuyết minh">■</button>
+    </div>
+
+    <button id="guide-call-btn" class="guide-call-btn" type="button" title="Gọi hướng dẫn viên · Phím G">
+        <span aria-hidden="true">👋</span><span class="guide-call-label">Gọi hướng dẫn viên</span>
+    </button>
 
     <div id="mobile-controls" aria-hidden="true">
         <div id="joystick-base"><div id="joystick-stick"></div></div>
@@ -101,6 +132,9 @@
         <h2 id="panel-title" class="panel-title">Hiện vật lịch sử</h2>
         <div class="divider"></div>
         <p id="panel-desc" class="panel-desc">Thông tin hiện vật sẽ hiển thị tại đây.</p>
+        <button id="panel-speak-btn" class="panel-speak-btn" type="button">
+            <span class="button-symbol" aria-hidden="true">🔊</span><span id="panel-speak-label">Nghe thuyết minh</span>
+        </button>
     </aside>
 
     <section id="victory-popup" class="modal-layer victory-popup hidden" role="dialog" aria-modal="true" aria-labelledby="victory-title">
